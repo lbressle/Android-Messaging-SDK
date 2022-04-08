@@ -9,21 +9,21 @@
 
     <!-- brand bubble-->
     <dimen name="brand_bubble_stroke_width">0dp</dimen>
-    <color name="brand_bubble_stroke_color">@color/lp_blue</color>
-    <color name="brand_bubble_message_text_color">@android:color/white</color>
+    <color name="brand_bubble_stroke_color">@color/lp_agent_background</color>
+    <color name="brand_bubble_message_text_color">@color/lp_agent_text</color>
     <color name="brand_bubble_message_link_text_color">@android:color/white</color>
     <color name="brand_bubble_timestamp_text_color">@color/lp_dark_gray_1</color>
-    <color name="brand_bubble_background_color">@color/lp_blue</color>
+    <color name="brand_bubble_background_color">@color/lp_agent_background</color>
     <color name="brand_logo_background_color">@color/lp_light_blue</color>
 
     <!-- agent bubble-->
     <dimen name="agent_bubble_stroke_width">0dp</dimen>
-    <color name="agent_bubble_stroke_color">@color/lp_blue</color>
-    <color name="agent_bubble_message_text_color">@android:color/white</color>
+    <color name="agent_bubble_stroke_color">@color/lp_agent_background</color>
+    <color name="agent_bubble_message_text_color">@color/lp_agent_text</color>
     <color name="agent_bubble_message_link_text_color">@android:color/white</color>
     <color name="agent_bubble_message_markdown_hyperlink_text_color">@android:color/white</color>
     <color name="agent_bubble_timestamp_text_color">@color/lp_dark_gray_1</color>
-    <color name="agent_bubble_background_color">@color/lp_blue</color>
+    <color name="agent_bubble_background_color">@color/lp_agent_background</color>
     <color name="agent_avatar_background_color">@color/lp_gray</color>
     <color name="agent_avatar_icon_color">@android:color/white</color>
     <bool name="show_agent_typing_in_message_bubble">false</bool>
@@ -31,11 +31,11 @@
 
     <!--consumer bubble-->
     <dimen name="consumer_bubble_stroke_width">1dp</dimen>
-    <color name="consumer_bubble_stroke_color">@color/lp_light_gray_1</color>-->
-    <color name="consumer_bubble_message_text_color">@android:color/black</color>
+    <color name="consumer_bubble_stroke_color">@color/lp_user_border</color>-->
+    <color name="consumer_bubble_message_text_color">@color/lp_user_text</color>
     <color name="consumer_bubble_message_link_text_color">@color/lp_blue</color>
     <color name="consumer_bubble_timestamp_text_color">@color/lp_dark_gray_1</color>
-    <color name="consumer_bubble_background_color">@color/lp_light_gray_1</color>
+    <color name="consumer_bubble_background_color">@color/white</color>
     <color name="consumer_bubble_state_text_color">@color/lp_dark_gray_1</color>
 
     <!-- system bubble-->
@@ -249,7 +249,7 @@
     <bool name="message_status_numeric_timestamp_only">false</bool>
 
     <!-- Brand/Agent name header properties-->
-    <color name="lp_brand_header_text_color">@android:color/black</color>
+    <color name="lp_brand_header_text_color">@color/black</color>
 
     <!--Voice-->
     <bool name="enable_voice_sharing">true</bool>
@@ -301,5 +301,7 @@
 
     <!--  0: Close (Default). 1: Hangup  -->
     <integer name="lp_voice_video_end_call_button_type">0</integer>
+
+    <color name="quick_reply_button_background_color">@color/uhc_blue</color>
 
 </resources>

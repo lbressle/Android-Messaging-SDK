@@ -228,6 +228,7 @@ public class MessagingActivity extends AppCompatActivity {
 		mOpenConversationButton = findViewById(R.id.button_start_activity);
 		mOpenConversationButton.setOnClickListener(v -> {
 			//Sample app setting - used to initialize the SDK with "Activity mode" when entering from push notification
+			Log.d("MYTAG", "open activity clicked");
 			SampleAppStorage.getInstance(MessagingActivity.this).setSDKMode(SampleAppStorage.SDKMode.ACTIVITY);
 			SampleAppUtils.disableButtonAndChangeText(mOpenConversationButton, getString(R.string.initializing));
 			storeData();
@@ -242,6 +243,7 @@ public class MessagingActivity extends AppCompatActivity {
 	private void initStartFragmentButton() {
 		Button openFragmentButton = findViewById(R.id.button_start_fragment);
 		openFragmentButton.setOnClickListener(v -> {
+			Log.d("MYTAG", "open fragment clicked");
 			//Sample app setting - used to initialize the SDK with "Fragment mode" when entering from push notification
 			SampleAppStorage.getInstance(MessagingActivity.this).setSDKMode(SampleAppStorage.SDKMode.FRAGMENT);
 			storeData();
@@ -312,8 +314,11 @@ public class MessagingActivity extends AppCompatActivity {
 				.setHistoryConversationsStateToDisplay(LPConversationsHistoryStateToDisplay.ALL)
 				.setCampaignInfo(campaignInfo)
 				.setReadOnlyMode(isReadOnly());
-//        setWelcomeMessage(params);  //This method sets the welcome message with quick replies. Uncomment this line to enable this feature.
-		LivePerson.showConversation(MessagingActivity.this, SampleAppUtils.createLPAuthParams(this), params);
+        setWelcomeMessage(params);  //This method sets the welcome message with quick replies. Uncomment this line to enable this feature.
+		LivePerson.showConversation(MessagingActivity.this, new LPAuthenticationParams(), params);
+		LivePerson.showConversation(MessagingActivity.this, new LPAuthenticationParams(), params);
+
+		new LPConfig().setConfigs();
 
 		ConsumerProfile consumerProfile = new ConsumerProfile.Builder()
 				.setFirstName(mFirstNameView.getText().toString())
@@ -331,17 +336,24 @@ public class MessagingActivity extends AppCompatActivity {
 
 	@SuppressWarnings("unused")
 	private void setWelcomeMessage(ConversationViewParams params) {
-		LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage("Welcome Message");
+		String lpWelcomeText = "Hello! I'm a UnitedHealthcare virtual assistant here to get you started. How can I help you today?";
+		LPWelcomeMessage lpWelcomeMessage = new LPWelcomeMessage(lpWelcomeText);
+
 		List<MessageOption> optionItems = new ArrayList<>();
-		optionItems.add(new MessageOption("bill", "bill"));
-		optionItems.add(new MessageOption("sales", "sales"));
-		optionItems.add(new MessageOption("support", "support"));
+		optionItems.add(new MessageOption("COVID-19 Resources", "COVID-19 Resources"));
+		optionItems.add(new MessageOption("ID Card", "ID Card"));
+		optionItems.add(new MessageOption("Benefits", "Benefits"));
+		optionItems.add(new MessageOption("Claims", "Claims"));
+		optionItems.add(new MessageOption("Find a Provider", "Find a Provider"));
+		optionItems.add(new MessageOption("Something Else", "Something Else"));
+
 		try {
 			lpWelcomeMessage.setMessageOptions(optionItems);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		lpWelcomeMessage.setNumberOfItemsPerRow(8);
+
+		lpWelcomeMessage.setNumberOfItemsPerRow(2);
 		lpWelcomeMessage.setMessageFrequency(LPWelcomeMessage.MessageFrequency.EVERY_CONVERSATION);
 		params.setLpWelcomeMessage(lpWelcomeMessage);
 	}

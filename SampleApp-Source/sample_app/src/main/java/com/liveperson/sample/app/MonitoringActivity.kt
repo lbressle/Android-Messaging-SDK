@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -83,14 +84,17 @@ class MonitoringActivity : AppCompatActivity() {
                 SampleAppStorage.getInstance(this@MonitoringActivity).consumerId = consumerIdFromUI
 
                 val identity = LPMonitoringIdentity(consumerIdFromUI)
+                Log.d("MYTAG", "identity: $identity")
 
                 LivepersonMonitoring.getEngagement(this@MonitoringActivity, arrayListOf(identity), buildSde(false), object : EngagementCallback {
                     override fun onSuccess(lpEngagementResponse: LPEngagementResponse) {
+                        Log.d("MYTAG", "response: $lpEngagementResponse")
 
                         hideProgressBar()
 
                         // Store the received campaignId, engagementId, sessionId and visitorId as the current ones. This is used to send them to the Messaging TestApp
                         val engagementList = lpEngagementResponse.engagementDetailsList
+                        Log.d("MYTAG", engagementList.toString())
                         if(engagementList != null && engagementList.isNotEmpty()) {
                             // For demo we display the first engagement only
                             currentCampaignId = engagementList[0].campaignId

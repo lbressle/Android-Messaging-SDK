@@ -4,5 +4,14 @@
     <color name="colorPrimaryDark">#FB8C00</color>
     <color name="colorAccent">#F57C00</color>
 
+    <color name="uhc_blue">#001c77</color>
+
+    <color name="lp_agent_background">#f3f3f3</color>
+    <color name="lp_agent_text">#333333</color>
+
+    <color name="lp_user_text">#1f1f1f</color>
+    <color name="lp_user_border">#ccc</color>
+
+    <color name="test">#e0e</color>
 
 </resources>
