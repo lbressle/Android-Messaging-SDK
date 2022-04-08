@@ -7,11 +7,4 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
-<!--
-    <style name="lp_enter_message_style" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorControlActivated">#F8BBD0</item>
-    </style>
--->
-
 </resources>

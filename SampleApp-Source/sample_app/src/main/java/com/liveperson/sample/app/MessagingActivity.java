@@ -318,8 +318,6 @@ public class MessagingActivity extends AppCompatActivity {
 		LivePerson.showConversation(MessagingActivity.this, new LPAuthenticationParams(), params);
 		LivePerson.showConversation(MessagingActivity.this, new LPAuthenticationParams(), params);
 
-		new LPConfig().setConfigs();
-
 		ConsumerProfile consumerProfile = new ConsumerProfile.Builder()
 				.setFirstName(mFirstNameView.getText().toString())
 				.setLastName(mLastNameView.getText().toString())

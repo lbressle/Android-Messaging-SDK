@@ -6,11 +6,20 @@
 
     <color name="uhc_blue">#001c77</color>
 
+    <color name="lp_agent_avatar_background">#002677</color>
     <color name="lp_agent_background">#f3f3f3</color>
     <color name="lp_agent_text">#333333</color>
 
+    <color name="lp_link">#196ecf</color>
+
+    <color name="lp_timestamp">#5a5a5a</color>
+
     <color name="lp_user_text">#1f1f1f</color>
     <color name="lp_user_border">#ccc</color>
+
+    <color name="lp_header_background">#002677</color>
+
+    <color name="lp_primary_dark">#4d196ecf</color>
 
     <color name="test">#e0e</color>
 
