@@ -449,11 +449,12 @@ public class MessagingActivity extends AppCompatActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		LPAuthenticationParams lpAuthenticationParams = SampleAppUtils.createLPAuthParams(this);
-		if (lpAuthenticationParams.getAuthType() == LPAuthenticationType.AUTH && TextUtils.isEmpty(lpAuthenticationParams.getAuthKey())) {
-			lpAuthenticationParams = null;
-		}
-		LivePerson.getUnreadMessagesCount(SampleAppStorage.getInstance(MessagingActivity.this).getAccount(), lpAuthenticationParams, new ICallback<Integer, Exception>() {
+		// LPAuthenticationParams lpAuthenticationParams = SampleAppUtils.createLPAuthParams(this);
+		// if (lpAuthenticationParams.getAuthType() == LPAuthenticationType.AUTH && TextUtils.isEmpty(lpAuthenticationParams.getAuthKey())) {
+		// 	lpAuthenticationParams = null;
+		// }
+		// LivePerson.getUnreadMessagesCount(SampleAppStorage.getInstance(MessagingActivity.this).getAccount(), lpAuthenticationParams, new ICallback<Integer, Exception>() {
+		LivePerson.getUnreadMessagesCount(SampleAppStorage.getInstance(MessagingActivity.this).getAccount(), new LPAuthenticationParams(), new ICallback<Integer, Exception>() {
 			@Override
 			public void onSuccess(Integer count) {
 				updateToolBar(count);
